@@ -22,7 +22,6 @@ const useProductMutation = ({ action }: useProductMutationProps) => {
         case "DELETE":
           if (window.confirm("Bạn muốn xóa sản phẩm không ")) {
             await deleteProduct(product._id!);
-            alert("Xóa sản phẩm thành công !!")
             toast.success("Xóa sản phẩm thành công");
           }
           break;

@@ -32,13 +32,15 @@ const AdminProductList = () => {
   const { mutate } = useProductMutation({ action: "DELETE" });
   const { data: categories, isLoading: loadingCategory } = UseCategory();
 
+  const handleDelete = async (id: number | string) => {
+    await mutate({ _id: id } as IdProducts);
+  };
+
   // Handle loading state
   if (isLoading || loadingCategory) return <CircularProgress />;
   if (!data) return <NotFound />;
 
-  const handleDelete = async (id: number | string) => {
-    await mutate({ _id: id } as IdProducts);
-  };
+
 
   return (
     <Box sx={{ padding: 2 }}>
@@ -72,8 +74,8 @@ const AdminProductList = () => {
                 <TableCell>
                   {product.discount > 0
                     ? formatCurrencyVND(
-                        product.price * (1 - product.discount / 100)
-                      )
+                      product.price * (1 - product.discount / 100)
+                    )
                     : formatCurrencyVND(product.price)}
                 </TableCell>
                 <TableCell>

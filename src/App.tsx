@@ -14,6 +14,7 @@ import PrivateRouter from "./page/website/Private/PrivateRouter";
 import ProductAddPage from "./page/(dashboard)/products/ProductAddPage ";
 import LayoutAdmin from "./page/(dashboard)/Layout/LayoutAdmin";
 import ProductEdit from "./page/(dashboard)/products/ProductEdit";
+import { ToastContainer } from "react-toastify";
 const routeConfig = [
   {
     path: "/",
@@ -34,6 +35,7 @@ const routeConfig = [
     element: (
       <PrivateRouter>
         <LayoutAdmin />
+        <ToastContainer />
       </PrivateRouter>
     ),
     children: [
